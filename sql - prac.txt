@@ -1,16 +1,11 @@
-Create the following tables with the mapping given below. a. stu_details (reg_no, stu_name, DOB,
-
-address, city) b. mark_details (reg_no, mark1, mark2,
-
-mark3, total) (i) Alter the table mark_details to add a column average with data type as long. (ii) Display the months between the DOB and till date.
-
+Create the following tables with the mapping given below.
+a. stu_details (reg_no, stu_name, DOB,address, city)
+b. mark_details (reg_no, mark1, mark2,mark3, total)
+(i) Alter the table mark_details to add a column average with data type as long.
+(ii) Display the months between the DOB and till date.
 (iii) Using alter command drop the column address from the table stu_details.
-
 (iv) Write a PL/SQL program to find the sum &avg marks of all the student using procedures.
-
-(v)Write a PL/SQL program to find the
-
-sum &avg marks of all the student using Functions. 
+(v)Write a PL/SQL program to find the sum &avg marks of all the student using Functions. 
 
 
 

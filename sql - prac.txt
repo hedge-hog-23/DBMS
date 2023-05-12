@@ -1,0 +1,94 @@
+Create the following tables with the mapping given below. a. stu_details (reg_no, stu_name, DOB,
+
+address, city) b. mark_details (reg_no, mark1, mark2,
+
+mark3, total) (i) Alter the table mark_details to add a column average with data type as long. (ii) Display the months between the DOB and till date.
+
+(iii) Using alter command drop the column address from the table stu_details.
+
+(iv) Write a PL/SQL program to find the sum &avg marks of all the student using procedures.
+
+(v)Write a PL/SQL program to find the
+
+sum &avg marks of all the student using Functions. 
+
+
+
+
+table creation:
+
+create table stu_details (
+reg_no number(10) not null,
+stu_name varchar(40),
+DOB date,
+address varchar(100),
+city varchar(20));
+
+insert into stu_details values (210701220,'sai',TO_DATE('2003/06/22', 'yyyy/mm/dd'),'porur','chennai');
+insert into stu_details values (210701203,'raghav',TO_DATE('2004/02/22', 'yyyy/mm/dd'),'namakkal','chennai');
+insert into stu_details values (210701238,'senthil',TO_DATE('2004/01/23', 'yyyy/mm/dd'),'karaikudi','sivagangai');
+
+create table mark_details (
+reg_no number(10) not null,
+mark1 number(3),
+mark2 number(3),
+mark3 number(3),
+total number(3));
+
+insert into mark_details values (210701220,100,100,100,300,100);
+insert into mark_details values (210701203,99,99,99,297,99);
+insert into mark_details values (210701238,95,95,95,285,95);
+
+
+
+
+alter table mark_details
+add average long;
+
+
+
+
+select reg_no,DOB,current_date,round(months_between(CURRENT_DATE,DOB),0) "MONTHS" from stu_details;
+
+
+
+
+alter table stu_details
+drop column address
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE find_marks_totals
+IS
+    total_marks_sum NUMBER;
+    avg_marks_sum NUMBER;
+BEGIN
+    SELECT SUM(total), AVG(total) INTO total_marks_sum, avg_marks_sum FROM mark_details;
+    DBMS_OUTPUT.PUT_LINE('Total Marks Sum: ' || total_marks_sum);
+    DBMS_OUTPUT.PUT_LINE('Average Marks: ' || avg_marks_sum);
+END;
+
+//for execution of procedure
+begin 
+   find_marks_totals;
+end;
+
+
+
+
+
+CREATE OR REPLACE FUNCTION find_marks_totals_func
+RETURN VARCHAR2
+IS
+    total_marks_sum NUMBER;
+    avg_marks_sum NUMBER;
+BEGIN
+    SELECT SUM(total), AVG(total) INTO total_marks_sum, avg_marks_sum FROM mark_details;
+    RETURN 'Total Marks Sum: ' || total_marks_sum || CHR(10) || 'Average Marks: ' || avg_marks_sum;
+END;
+
+//for execution of function
+SELECT find_marks_totals_func() FROM DUAL;
+

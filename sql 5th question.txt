@@ -41,3 +41,28 @@ WHERE price BETWEEN 175 AND 250;
 SELECT *
 FROM book
 WHERE author LIKE 'K%';
+
+
+DECLARE
+  num1 NUMBER := 10;
+  num2 NUMBER := 20;
+  largest NUMBER;
+BEGIN
+  IF num1 > num2 THEN
+    largest := num1;
+  ELSE
+    largest := num2;
+  END IF;
+
+  DBMS_OUTPUT.PUT_LINE('The largest number is: ' || largest);
+END;
+
+
+CREATE OR REPLACE TRIGGER update_book_price
+BEFORE UPDATE ON book
+FOR EACH ROW
+BEGIN
+  IF :NEW.quantity < 10 THEN
+    :NEW.price := :NEW.price * 1.1; -- increase price by 10%
+  END IF;
+END;

@@ -1,0 +1,14 @@
+same table as 1st
+
+SELECT *
+FROM mark_details
+WHERE total BETWEEN 250 AND 300;
+
+DROP TABLE mark_details;
+
+DELETE FROM stu_details
+WHERE reg_no = 161;
+
+SELECT *
+FROM stu_details
+WHERE stu_name LIKE 'a%';

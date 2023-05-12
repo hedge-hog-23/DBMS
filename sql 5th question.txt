@@ -1,0 +1,43 @@
+5. Create the following tables with the mapping given below.
+a. book (book_name,author,price,quantity).
+b. customer (Cust_id, Cust_name, Addr, ph_no,pan_no)
+(i) Truncate the table customer.
+(ii) List the author of the book which one have the price of 200.
+(iii).List the price of the book which one is between the price of 175 & 250.
+(iv).Retrieve all the details from the table book whose author name start with K.
+(v) Write a pl/sql program to find the largest of two numbers.
+(vi) Write a pl/sql program to Update the price of a particular book using TriggerCREATE TABLE book (
+  book_name VARCHAR2(100),
+  author VARCHAR2(100),
+  price NUMBER(8,2),
+  quantity NUMBER(8)
+);
+
+
+
+insert into book values ('3-men in a boat','jerome k jerome',300,5);
+insert into book values ('wings of fire','abdul kalam',200,10);
+
+
+idu mariyae cust table um create panikonga
+
+
+TRUNCATE TABLE customer;
+
+
+SELECT author
+FROM book
+WHERE price = 200;
+
+
+
+SELECT price
+FROM book
+WHERE price BETWEEN 175 AND 250;
+
+
+
+
+SELECT *
+FROM book
+WHERE author LIKE 'K%';

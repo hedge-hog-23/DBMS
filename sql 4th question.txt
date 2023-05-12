@@ -1,0 +1,25 @@
+.Create the following tables with the mapping given below.
+a. emp_details(emp_no, emp_name, DOB, address, doj, mobile_no, dept_no, salary).
+b. dept_details(dept_no, dept_name, location).
+(i) Truncate the table dept_details.
+(ii) Display the structure of the table emp_details.
+(iii) Convert the first letter of emp_name into capitals.
+(iv) Display the emp_namegetting highest salary.
+(v)Design a application for Banking Process using python.
+
+
+same table as in 2nd
+
+
+TRUNCATE TABLE dept_details;
+
+DESCRIBE emp_details;
+
+UPDATE emp_details
+SET emp_name = INITCAP(emp_name);
+
+SELECT emp_name
+FROM emp_details
+WHERE salary = (SELECT MAX(salary) FROM emp_details);
+
+
